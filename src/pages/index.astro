@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Calculators from "../components/Calculators.astro";
 ---
 
 <Layout title="Bienvenido a EconoTools">
   <Hero>
-    <h1 class="text-balance text-4xl font-bold tracking-tighter lg:text-5xl">
+    <h1 class="text-balance text-4xl font-black tracking-tight lg:text-5xl">
       Bienvenido a EconoTools
     </h1>
     <p class="text-pretty text-base">
@@ -13,4 +14,9 @@ import Hero from "../components/Hero.astro";
       guías y mucho más.
     </p>
   </Hero>
+  <Calculators>
+    <h2 class="text-balance text-3xl font-black tracking-tight lg:text-4xl">
+      Nuestras calculadoras
+    </h2>
+  </Calculators>
 </Layout>
