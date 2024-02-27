@@ -1,10 +1,15 @@
+---
+import MenuIcon from "./icons/MenuIcon.astro";
+---
+
 <section class="flex flex-row justify-center w-full border-b mb-5">
   <div
-    class="flex flex-row justify-between items-center lg:w-[1280px] h-16 px-10"
+    class="flex flex-row justify-between items-center w-full lg:w-[1280px] h-16 px-4 lg:px-10"
   >
     <img src="./logo.svg" alt="EconoTools Logo" />
     <nav class="flex flex-row gap-8">
-      <ul class="flex flex-row gap-8 text-base font-medium">
+      <MenuIcon class="lg:hidden" />
+      <ul class="lg:flex flex-row gap-8 text-base font-medium hidden">
         <li>Calculadoras</li>
         <li>Guías</li>
         <li>Rates</li>
