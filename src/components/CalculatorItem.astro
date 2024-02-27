@@ -1,0 +1,15 @@
+---
+const { title, img, link } = Astro.props;
+---
+
+<a
+  href={link}
+  class="group flex flex-col gap-y-3 text-secondary transition hover:scale-105"
+>
+  <img
+    class="aspect-video rounded-xl border object-cover object-center transition group-hover:shadow-md"
+    src={img}
+    alt="Calculator Image"
+  />
+  <h3 class="font-medium">{title}</h3>
+</a>
