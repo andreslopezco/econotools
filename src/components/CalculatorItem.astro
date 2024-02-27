@@ -1,15 +1,25 @@
 ---
-const { title, img, link } = Astro.props;
+const { title, img, link, disabled } = Astro.props;
 ---
 
 <a
   href={link}
   class="group flex flex-col gap-y-3 text-secondary transition hover:scale-105"
 >
-  <img
-    class="aspect-video rounded-xl border object-cover object-center transition group-hover:shadow-md"
-    src={img}
-    alt="Calculator Image"
-  />
+  <div class="relative">
+    <img
+      class="aspect-video rounded-xl border object-cover object-center transition group-hover:shadow-md"
+      src={img}
+      alt="Calculator Image"
+    />
+    {
+      disabled && (
+        <div class="absolute left-0 top-0 flex h-full w-full items-center justify-center rounded-xl bg-secondary bg-opacity-60 text-primary">
+          <span class="font-medium">¡Proximamente!</span>
+        </div>
+      )
+    }
+  </div>
+
   <h3 class="font-medium">{title}</h3>
 </a>
