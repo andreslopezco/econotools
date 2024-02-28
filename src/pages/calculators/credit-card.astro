@@ -14,8 +14,8 @@ import Footer from "@/components/Footer.astro";
       tomando en cuenta el capital y los intereses de tu deuda.
     </p>
   </Hero>
-  <section class="grid w-full grid-cols-2 p-4 lg:w-[960px]">
-    <article class="px-4">
+  <section class="flex w-full flex-col p-4 lg:grid lg:w-[960px] lg:grid-cols-2">
+    <article class="lg:px-4">
       <h2
         class="mb-2 text-balance text-2xl font-black tracking-tight lg:text-3xl"
       >
@@ -29,13 +29,15 @@ import Footer from "@/components/Footer.astro";
         <div class="grid grid-cols-2 gap-x-4">
           <input
             type="number"
-            class="h-14 w-full rounded-xl border bg-accent bg-opacity-5 p-4"
-            placeholder="$0,00"
+            class="h-14 w-full rounded-xl border bg-input bg-opacity-5 p-4"
+            id="amount"
+            placeholder="$0.00"
           />
           <input
             type="number"
-            class="h-14 w-full rounded-xl border bg-accent bg-opacity-5 p-4"
-            placeholder="0,00%"
+            class="h-14 w-full rounded-xl border bg-input bg-opacity-5 p-4"
+            id="rate"
+            placeholder="0.00%"
           />
         </div>
       </div>
@@ -44,7 +46,7 @@ import Footer from "@/components/Footer.astro";
         <select
           name="installments"
           id="installments"
-          class="h-14 w-full rounded-xl border bg-accent bg-opacity-5 p-4"
+          class="h-14 w-full rounded-xl border bg-input bg-opacity-5 p-4"
         >
           <option value="1">1</option>
           <option value="2">2</option>
@@ -86,19 +88,37 @@ import Footer from "@/components/Footer.astro";
       </div>
       <div class="flex flex-col gap-x-4 py-3">
         <button
-          class="flex h-12 w-full flex-col items-center justify-center rounded-xl border bg-accent p-4 font-bold tracking-wide text-primary transition hover:bg-opacity-80"
-          >Calcular</button
+          class="flex h-12 w-full flex-col items-center justify-center rounded-xl border bg-accent p-4 font-bold tracking-wide text-primary transition hover:scale-105 hover:bg-opacity-80"
+          id="submit">Calcular</button
         >
       </div>
     </article>
-    <article class="px-4">
+    <article class="lg:px-4">
       <h2
         class="mb-2 text-balance text-2xl font-black tracking-tight lg:text-3xl"
       >
         Simulador de Pagos
       </h2>
-      Grafico
+      <div class="mt-6 flex flex-col rounded-xl border p-6">
+        <span class="text-base font-medium">Por tu deuda pagarás</span>
+        <span class="my-3 text-4xl font-bold">$150.000,00</span>
+        <div class="grid grid-cols-3">
+          <div class="flex flex-col items-center justify-center border-r">
+            <span class="font-medium">Tasa E.A.</span>
+            <span class="font-light">25.00%</span>
+          </div>
+          <div class="flex flex-col items-center justify-center border-r">
+            <span class="font-medium">Tasa N.M.</span>
+            <span class="font-light">25.00%</span>
+          </div>
+          <div class="flex flex-col items-center justify-center border-r-0">
+            <span class="font-medium">Cuotas</span>
+            <span class="font-light">15</span>
+          </div>
+        </div>
+      </div>
     </article>
   </section>
   <Footer />
+  <script src="@/scripts/credit-card.mjs"></script>
 </Layout>
