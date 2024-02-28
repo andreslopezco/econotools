@@ -7,8 +7,10 @@ export default {
         primary: "#FEFDFF",
         secondary: "#1f1300",
         accent: "#8fb339",
+        alert: "#ff7b9c",
+        input: "#384e77",
       },
     },
   },
-  plugins: ['prettier-plugin-tailwindcss'],
+  plugins: ["prettier-plugin-tailwindcss"],
 };
