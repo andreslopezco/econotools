@@ -1,7 +1,15 @@
+---
+const { img } = Astro.props;
+---
+
 <section class="w-full p-4 lg:w-[960px]">
   <article
-    class="flex min-h-[480px] flex-col justify-end gap-y-2 rounded-xl bg-[url('/images/hero-image.jpeg')] bg-cover bg-center p-10 text-primary"
+    class=`relative min-h-[480px] rounded-xl bg-[url('${img}')] bg-cover bg-center  `
   >
-    <slot />
+    <div
+      class="absolute left-0 top-0 flex h-full w-full flex-col justify-end gap-y-2 rounded-xl bg-secondary bg-opacity-20 p-10 text-primary"
+    >
+      <slot />
+    </div>
   </article>
 </section>
