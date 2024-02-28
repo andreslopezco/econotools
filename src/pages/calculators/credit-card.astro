@@ -22,77 +22,81 @@ import Hero from "@/components/Hero.astro";
       >
         Calculadora
       </h2>
-      <div class="py-3">
-        <div class="grid grid-cols-2 gap-x-4">
-          <span class="pb-2">Purchase Amount</span>
-          <span class="pb-2">Tasa Efectiva Anual</span>
+      <form>
+        <div class="py-3">
+          <div class="grid grid-cols-2 gap-x-4">
+            <span class="pb-2">Purchase Amount</span>
+            <span class="pb-2">Tasa Efectiva Anual</span>
+          </div>
+          <div class="grid grid-cols-2 gap-x-4">
+            <input
+              type="number"
+              class="h-14 w-full rounded-xl border bg-input bg-opacity-5 p-4"
+              id="amount"
+              placeholder="$0.00"
+              required
+            />
+            <input
+              type="number"
+              class="h-14 w-full rounded-xl border bg-input bg-opacity-5 p-4"
+              id="rate"
+              placeholder="0.00%"
+              required
+            />
+          </div>
         </div>
-        <div class="grid grid-cols-2 gap-x-4">
-          <input
-            type="number"
+        <div class="flex flex-col gap-x-4 py-3">
+          <span class="pb-2">Número de Cuotas</span>
+          <select
+            name="installments"
+            id="installments"
             class="h-14 w-full rounded-xl border bg-input bg-opacity-5 p-4"
-            id="amount"
-            placeholder="$0.00"
-          />
-          <input
-            type="number"
-            class="h-14 w-full rounded-xl border bg-input bg-opacity-5 p-4"
-            id="rate"
-            placeholder="0.00%"
-          />
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+          </select>
         </div>
-      </div>
-      <div class="flex flex-col gap-x-4 py-3">
-        <span class="pb-2">Número de Cuotas</span>
-        <select
-          name="installments"
-          id="installments"
-          class="h-14 w-full rounded-xl border bg-input bg-opacity-5 p-4"
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-          <option value="13">13</option>
-          <option value="14">14</option>
-          <option value="15">15</option>
-          <option value="16">16</option>
-          <option value="17">17</option>
-          <option value="18">18</option>
-          <option value="19">19</option>
-          <option value="20">20</option>
-          <option value="21">21</option>
-          <option value="22">22</option>
-          <option value="23">23</option>
-          <option value="24">24</option>
-          <option value="25">25</option>
-          <option value="26">26</option>
-          <option value="27">27</option>
-          <option value="28">28</option>
-          <option value="29">29</option>
-          <option value="30">30</option>
-          <option value="31">31</option>
-          <option value="32">32</option>
-          <option value="33">33</option>
-          <option value="34">34</option>
-          <option value="35">35</option>
-          <option value="36">36</option>
-        </select>
-      </div>
-      <div class="flex flex-col gap-x-4 py-3">
-        <button
-          class="flex h-12 w-full flex-col items-center justify-center rounded-xl border bg-accent p-4 font-bold tracking-wide text-primary transition hover:scale-105 hover:bg-opacity-80"
-          id="submit">Calcular</button
-        >
-      </div>
+        <div class="flex flex-col gap-x-4 py-3">
+          <button
+            class="flex h-12 w-full flex-col items-center justify-center rounded-xl border bg-accent p-4 font-bold tracking-wide text-primary transition hover:scale-105 hover:bg-opacity-80 disabled:scale-100 disabled:bg-opacity-50"
+            id="submit">Calcular</button
+          >
+        </div>
+      </form>
     </article>
     <article>
       <h2
@@ -100,21 +104,24 @@ import Hero from "@/components/Hero.astro";
       >
         Simulador de Pagos
       </h2>
-      <div class="mt-6 flex flex-col rounded-xl border p-6">
+      <div class="mt-6 flex flex-col rounded-xl border p-6" id="payment-plan">
         <span class="text-base font-medium">Por tu deuda pagarás</span>
-        <span class="my-3 text-4xl font-bold">$150.000,00</span>
+        <span
+          class="my-4 self-center text-4xl font-bold"
+          id="total-amount-description">$0.00</span
+        >
         <div class="grid grid-cols-3">
           <div class="flex flex-col items-center justify-center border-r">
             <span class="font-medium">Tasa E.A.</span>
-            <span class="font-light">25.00%</span>
+            <span class="font-light" id="ea-description">0.00%</span>
           </div>
           <div class="flex flex-col items-center justify-center border-r">
             <span class="font-medium">Tasa N.M.</span>
-            <span class="font-light">25.00%</span>
+            <span class="font-light" id="nm-description">0.00%</span>
           </div>
           <div class="flex flex-col items-center justify-center border-r-0">
             <span class="font-medium">Cuotas</span>
-            <span class="font-light">15</span>
+            <span class="font-light" id="installments-description">0</span>
           </div>
         </div>
       </div>

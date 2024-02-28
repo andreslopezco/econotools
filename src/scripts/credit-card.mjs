@@ -3,6 +3,15 @@ const inputAmount = document.getElementById("amount");
 const inputRate = document.getElementById("rate");
 const inputInstallments = document.getElementById("installments");
 const submitButton = document.getElementById("submit");
+const paymentPlan = document.getElementById("payment-plan");
+const totalAmountDescription = document.getElementById(
+  "total-amount-description",
+);
+const eaDescription = document.getElementById("ea-description");
+const nmDescription = document.getElementById("nm-description");
+const installmentsDescription = document.getElementById(
+  "installments-description",
+);
 
 /* Defining global variables */
 let amount;
@@ -20,14 +29,12 @@ function startScript() {
 }
 
 function calculate() {
-  submitButton.disabled = true;
-
   amount = Number(inputAmount.value);
   rate = Number(inputRate.value);
   rateMV = Number(interestConvertion(rate));
   installments = Number(inputInstallments.value);
-  amountPayment = amount / installments;
-  totalAmount = amount;
+  amountPayment = Number(amount / installments);
+  totalAmount = Number(amount);
 
   for (let i = 1; i <= installments; i++) {
     if (i == 1) {
@@ -36,10 +43,15 @@ function calculate() {
       amount = amount - amountPayment;
     }
 
-    ratePayment = financial(amount * (rateMV / 100));
+    ratePayment = Number(financial(amount * (rateMV / 100)));
     installmentPayment = financial(amountPayment + ratePayment);
     totalAmount = totalAmount + ratePayment;
   }
+
+  totalAmountDescription.innerHTML = "$" + financial(totalAmount);
+  eaDescription.innerHTML = financial(rate) + "%";
+  nmDescription.innerHTML = financial(rateMV) + "%";
+  installmentsDescription.innerHTML = installments;
 }
 
 function financial(n) {
