@@ -4,10 +4,11 @@ const { img } = Astro.props;
 
 <section class="w-full p-4 lg:w-[960px]">
   <article
-    class=`relative min-h-[480px] rounded-xl bg-[url('${img}')] bg-cover bg-center  `
+    class="relative min-h-[480px] rounded-xl bg-cover bg-center"
+    style=`background-image: url(${img});`
   >
     <div
-      class="absolute left-0 top-0 flex h-full w-full flex-col justify-end gap-y-2 rounded-xl bg-secondary bg-opacity-20 p-10 text-primary"
+      class="absolute left-0 top-0 flex h-full w-full flex-col justify-end gap-y-2 rounded-xl bg-secondary bg-opacity-50 p-10 text-primary"
     >
       <slot />
     </div>
